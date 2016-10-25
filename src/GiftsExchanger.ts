@@ -12,10 +12,11 @@ export class GiftsExchanger {
 
     constructor(data: IParticipant[], criteria: Criteria[]) {
         const that = this;
-        shuffle(data);
-        this.availableParticipants = [].concat(data);
+        var dataToUSe = [].concat(data);
+        shuffle(dataToUSe);
+        this.availableParticipants = [].concat(dataToUSe);
         this.criteria = criteria;
-        this.participants = [].concat(data);
+        this.participants = [].concat(dataToUSe);
         this.relations = [];
         this.domains = this.getParticipantsDomain();
     }
