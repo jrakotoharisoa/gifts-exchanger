@@ -1,5 +1,4 @@
 import { IParticipant, IGiftRelation, Criteria } from './model';
-import * as Q from 'q';
 
 export class GiftsExchanger {
     private participants: IParticipant[];
@@ -15,20 +14,20 @@ export class GiftsExchanger {
     }
 
     run() {
-        this.participants.map((value, index) => {
-            const possibleReceivers: IParticipant[] = this.getDomain(value);
+        this.participants.map((sender, index) => {
+            const possibleReceivers: IParticipant[] = this.getDomain(sender);
             if (possibleReceivers.length > 0) {
                 const randomIndex = getRandomInt(0, possibleReceivers.length);
-                const receiver = possibleReceivers[randomIndex];
+                const {name: receiverName, id: receiverId} = possibleReceivers[randomIndex];
                 this.relations.push({
-                    sender: value.name,
-                    receiver: receiver.name
+                    sender: sender.name,
+                    receiver: receiverName
                 });
-                this.availableParticipants = this.availableParticipants.filter(p => p.id !== receiver.id);
+                this.availableParticipants = this.availableParticipants.filter(({ id }) => id !== receiverId);
             }
             else {
                 this.relations.push({
-                    sender: value.name,
+                    sender: sender.name,
                     receiver: "UNKNOWN"
                 });
             }

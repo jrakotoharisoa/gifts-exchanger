@@ -46,8 +46,8 @@ describe('Gifts Exchanger', () => {
             // When
             exchanger.run();
             // Then
-            exchanger.relations.map((rel) => {
-                expect(rel.receiver).to.eql("UNKNOWN");
+            exchanger.relations.map(({receiver}) => {
+                expect(receiver).to.eql("UNKNOWN");
             });
         });
     });

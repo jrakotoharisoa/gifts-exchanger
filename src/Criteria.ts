@@ -1,24 +1,24 @@
 import { IParticipant } from './model';
 
 
-export function NotMyself(sender: IParticipant, receiver: IParticipant) {
-    return sender.id !== receiver.id;
+export function NotMyself({id: senderId}: IParticipant, {id: receiverId}: IParticipant) {
+    return senderId !== receiverId;
 }
 
-export function NotSameGroup(sender: IParticipant, receiver: IParticipant) {
-    return sender.group !== receiver.group;
+export function NotSameGroup({group: senderGroup}: IParticipant, {group: receiverGroup}: IParticipant) {
+    return senderGroup !== receiverGroup;
 }
 
-export function NotGiveToOldIfNew(sender: IParticipant, receiver: IParticipant) {
-    if (sender.type.toUpperCase() === 'NEW' && receiver.type.toUpperCase() == 'OLD') {
+export function NotGiveToOldIfNew({type: senderType}: IParticipant, {type: receiverType}: IParticipant) {
+    if (senderType.toUpperCase() === 'NEW' && receiverType.toUpperCase() == 'OLD') {
         return false;
     }
 
     return true;
 }
 
-export function NotGiveToNewIfOld(sender: IParticipant, receiver: IParticipant) {
-    if (sender.type.toUpperCase() === 'OLD' && receiver.type.toUpperCase() == 'NEW') {
+export function NotGiveToNewIfOld({type: senderType}: IParticipant, {type: receiverType}: IParticipant) {
+    if (senderType.toUpperCase() === 'OLD' && receiverType.toUpperCase() == 'NEW') {
         return false;
     }
 
