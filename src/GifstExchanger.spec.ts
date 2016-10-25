@@ -4,9 +4,9 @@ import { GiftsExchanger } from './GiftsExchanger';
 import { spy, stub } from 'sinon';
 describe('Gifts Exchanger', () => {
     var data: IParticipant[] = [
-        { id: 1, name: 'Tom', type: "", group: "" },
-        { id: 2, name: 'Anna', type: "", group: "" },
-        { id: 3, name: 'Lea', type: "", group: "" },
+        { id: 1, name: 'Tom', type: "", group: "1" },
+        { id: 2, name: 'Anna', type: "", group: "2" },
+        { id: 3, name: 'Lea', type: "", group: "3" },
     ];
 
 
@@ -24,11 +24,11 @@ describe('Gifts Exchanger', () => {
         it('should call getDomain', () => {
             // Given
             const exchanger = new GiftsExchanger(data, []);
-            const getDomain = spy(exchanger, 'getDomain');
+            const getReceiversFor = spy(exchanger, 'getReceiversFor');
             // When
             exchanger.run();
             // Then
-            expect(getDomain.called).to.be.true;
+            expect(getReceiversFor.called).to.be.true;
         });
 
         it('should call fill relations property', () => {
@@ -52,13 +52,13 @@ describe('Gifts Exchanger', () => {
         });
     });
 
-    describe('GetDomain', () => {
+    describe('getReceiversFor', () => {
         it('should call criteria', () => {
             // Given
             let criteria = spy();
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            exchanger.getDomain(data[0])
+            exchanger.getReceiversFor(data[0])
             // Then
             expect(criteria.called).to.be.true;
         });
@@ -69,7 +69,7 @@ describe('Gifts Exchanger', () => {
             criteria.returns(false);
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            const domain = exchanger.getDomain(data[0])
+            const domain = exchanger.getReceiversFor(data[0])
             // Then
             expect(domain.length).to.eql(0);
         });
@@ -80,7 +80,7 @@ describe('Gifts Exchanger', () => {
             criteria.returns(true);
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            const domain = exchanger.getDomain(data[0])
+            const domain = exchanger.getReceiversFor(data[0])
             // Then
             expect(domain.length).to.eql(data.length);
         });
@@ -90,18 +90,54 @@ describe('Gifts Exchanger', () => {
     describe('display', () => {
         it('should call console.log as many times as data.length', () => {
             // Given
-            const loggerStub = spy(console, 'log');
             const exchanger = new GiftsExchanger(data, []);
             exchanger.run();
-
+            const loggerStub = spy(console, 'log');
             // When
             exchanger.display();
 
             // Then
             expect(loggerStub.callCount).to.eql(exchanger.relations.length);
-
-
         });
     });
+
+    describe('IsComplete', () => {
+        it('should return true if participant available length equal 0', () => {
+            const exchanger = new GiftsExchanger([], []);
+            expect(exchanger.IsComplete()).to.be.true;
+        });
+        it('should return false if participant available length not equal 0', () => {
+            const exchanger = new GiftsExchanger(data, []);
+            expect(exchanger.IsComplete()).to.be.false;
+        });
+
+    });
+
+    describe('getParticipantsDomain', () => {
+        it('should return domain for all available participants', () => {
+            const exchanger = new GiftsExchanger(data, []);
+            const domains = exchanger.getParticipantsDomain();
+            data.map((p) => {
+                expect(domains[p.id]).to.exist;
+                expect(domains[p.id]).to.eql(data);
+            });
+        })
+    });
+
+    describe('getParticipantToProces', () => {
+        it('should return the first participant with smallest domain', () => {
+            const criteria = function (sender: IParticipant, receiver: IParticipant) {
+                if (sender.id !== 2) {
+                    return true;
+                }
+                return false;
+            };
+            debugger
+            const exchanger = new GiftsExchanger(data, [criteria]);
+            const p2p = exchanger.getParticipantToProces();
+            expect(p2p).to.eql(data[1]);
+        });
+    });
+
 
 });
