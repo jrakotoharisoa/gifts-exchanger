@@ -46,8 +46,9 @@ export class GiftsExchanger {
     }
 
     run() {
-        if (this.IsComplete())
+        if (this.IsComplete()) {
             return;
+        }
         const sender = this.getParticipantToProces();
         const curParticipantDomain = this.domains[sender.id];
         if (curParticipantDomain.length === 0) {
@@ -77,8 +78,9 @@ export class GiftsExchanger {
         const domain = this.availableParticipants
             .filter((p: IParticipant) => {
                 for (let c of this.criteria) {
-                    if (!c(participant, p))
+                    if (!c(participant, p)) {
                         return false;
+                    }
                 }
                 return true;
             });
@@ -102,4 +104,3 @@ function shuffle(a) {
         [a[i - 1], a[j]] = [a[j], a[i - 1]];
     }
 }
-

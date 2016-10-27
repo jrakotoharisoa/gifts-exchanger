@@ -58,6 +58,16 @@
             "check-operator",
             "check-separator",
             "check-type"
+        ],
+        "eofline": true,
+        "curly": true,
+        "interface-name": [
+            "always-prefix"
+        ],
+        "jsdoc-format": true,
+        "max-line-length": [
+            true,
+            120
         ]
     }
 }

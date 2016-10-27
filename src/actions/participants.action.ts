@@ -28,7 +28,9 @@ export type EditParticipantAction = {
     id: number
 }
 
-export function createActionEditParticipant(id: number, field: ('name' | 'group' | 'type'), value: string): EditParticipantAction {
+export function createActionEditParticipant(id: number,
+    field: ('name' | 'group' | 'type'),
+    value: string): EditParticipantAction {
     return {
         type: 'EDIT_PARTICIPANT',
         id: id,

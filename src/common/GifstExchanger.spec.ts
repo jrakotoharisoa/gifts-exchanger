@@ -137,6 +137,4 @@ describe('Gifts Exchanger', () => {
             expect(p2p).to.eql(data[1]);
         });
     });
-
-
 });
