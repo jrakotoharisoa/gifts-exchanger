@@ -1,4 +1,4 @@
-import { IParticipant, IGiftRelation, Criteria } from './model';
+import { IParticipant, IGiftRelation, Criteria } from '../model';
 
 export class GiftsExchanger {
     private participants: IParticipant[];

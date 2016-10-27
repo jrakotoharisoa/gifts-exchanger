@@ -1,4 +1,4 @@
-import { IParticipant } from './model';
+import { IParticipant } from '../model';
 
 
 export function NotMyself({id: senderId}: IParticipant, {id: receiverId}: IParticipant) {

@@ -1,4 +1,4 @@
-import { IParticipant } from './model';
+import { IParticipant } from '../model';
 import * as fs from 'fs';
 
 const csv = require('fast-csv');

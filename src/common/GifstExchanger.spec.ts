@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { IParticipant, Criteria } from './Model';
+import { IParticipant, Criteria } from '../model';
 import { GiftsExchanger } from './GiftsExchanger';
 import { spy, stub } from 'sinon';
 describe('Gifts Exchanger', () => {
@@ -119,7 +119,7 @@ describe('Gifts Exchanger', () => {
             const domains = exchanger.getParticipantsDomain();
             data.map((p) => {
                 expect(domains[p.id]).to.exist;
-                expect(domains[p.id]).to.eql(data);
+                expect(domains[p.id].length).to.eq(data.length);
             });
         })
     });
