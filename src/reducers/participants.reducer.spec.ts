@@ -24,7 +24,7 @@ describe('Participants Reducer', () => {
             // When
             const state = participantsReducer(undefined, createActionAddParticipant(participantToAdd));
             // Then
-            expect(state).to.eql({ "0": participantToAdd });
+            expect(state).to.eql({ '0': participantToAdd });
         });
     });
 
@@ -32,7 +32,7 @@ describe('Participants Reducer', () => {
         it('should do nothing if no participant id match', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -40,7 +40,7 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(1, "name", "NewName"));
+            const actual = participantsReducer(initial, createActionEditParticipant(1, 'name', 'NewName'));
             // Then
             expect(actual).to.eql(initial);
         });
@@ -48,7 +48,7 @@ describe('Participants Reducer', () => {
         it('should edit participant name field', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -56,7 +56,7 @@ describe('Participants Reducer', () => {
                 }
             };
             const expected: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'NewName',
                     group: 'group',
@@ -64,7 +64,7 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, "name", "NewName"));
+            const actual = participantsReducer(initial, createActionEditParticipant(0, 'name', 'NewName'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -72,7 +72,7 @@ describe('Participants Reducer', () => {
         it('should edit participant group field', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -80,7 +80,7 @@ describe('Participants Reducer', () => {
                 }
             };
             const expected: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'NewGroup',
@@ -88,7 +88,7 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, "group", "NewGroup"));
+            const actual = participantsReducer(initial, createActionEditParticipant(0, 'group', 'NewGroup'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -96,7 +96,7 @@ describe('Participants Reducer', () => {
         it('should edit participant type field', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -104,7 +104,7 @@ describe('Participants Reducer', () => {
                 }
             };
             const expected: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -112,7 +112,7 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, "type", "NewType"));
+            const actual = participantsReducer(initial, createActionEditParticipant(0, 'type', 'NewType'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -122,7 +122,7 @@ describe('Participants Reducer', () => {
         it('should do nothing if participant id no mathc', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',
@@ -137,7 +137,7 @@ describe('Participants Reducer', () => {
         it('should do nothing if participant id no mathc', () => {
             // Given
             const initial: IParticipantsState = {
-                ["0"]: {
+                ['0']: {
                     id: 0,
                     name: 'ParticipantName',
                     group: 'group',

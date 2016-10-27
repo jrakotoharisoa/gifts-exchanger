@@ -22,7 +22,7 @@ export class CSVReader {
                     ignoreEmpty: true,
                     trim: true
                 })
-                    .on("data", function ([name, group, type]) {
+                    .on('data', function ([name, group, type]) {
                         index++;
                         results.push({
                             id: index,
@@ -32,7 +32,7 @@ export class CSVReader {
                         });
 
                     })
-                    .on("end", function () {
+                    .on('end', function () {
                         resolve(results);
                     });
 

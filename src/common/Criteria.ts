@@ -10,7 +10,7 @@ export function NotSameGroup({group: senderGroup}: IParticipant, {group: receive
 }
 
 export function NotGiveToOldIfNew({type: senderType}: IParticipant, {type: receiverType}: IParticipant) {
-    if (senderType.toUpperCase() === 'NEW' && receiverType.toUpperCase() == 'OLD') {
+    if (senderType.toUpperCase() === 'NEW' && receiverType.toUpperCase() === 'OLD') {
         return false;
     }
 
@@ -18,7 +18,7 @@ export function NotGiveToOldIfNew({type: senderType}: IParticipant, {type: recei
 }
 
 export function NotGiveToNewIfOld({type: senderType}: IParticipant, {type: receiverType}: IParticipant) {
-    if (senderType.toUpperCase() === 'OLD' && receiverType.toUpperCase() == 'NEW') {
+    if (senderType.toUpperCase() === 'OLD' && receiverType.toUpperCase() === 'NEW') {
         return false;
     }
 

@@ -6,13 +6,13 @@ export class GiftsExchanger {
     private criteria: Criteria[];
     private domains: {
         [s: string]: IParticipant[]
-    }
+    };
     relations: IGiftRelation[];
 
 
     constructor(data: IParticipant[], criteria: Criteria[]) {
         const that = this;
-        var dataToUSe = [].concat(data);
+        const dataToUSe = [].concat(data);
         shuffle(dataToUSe);
         this.availableParticipants = [].concat(dataToUSe);
         this.criteria = criteria;
@@ -50,11 +50,11 @@ export class GiftsExchanger {
             return;
         const sender = this.getParticipantToProces();
         const curParticipantDomain = this.domains[sender.id];
-        if (curParticipantDomain.length == 0) {
+        if (curParticipantDomain.length === 0) {
             // TODO: should get back
             this.relations.push({
                 sender: sender.name,
-                receiver: "UNKNOWN"
+                receiver: 'UNKNOWN'
             });
             this.participants = this.participants.filter(({ id }) => id !== sender.id);
         }

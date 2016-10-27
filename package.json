@@ -5,6 +5,7 @@
   "author": "Johann Rakotoharisoa",
   "license": "MIT",
   "scripts": {
+    "lint": "tslint -c tslint.json src/**/*.ts src/**/*.tsx",
     "clean": "rimraf dist/ && rimraf coverage/",
     "test": "mocha --opts mocha.opts",
     "coverage": "yarn run clean && tsc && istanbul cover _mocha -- dist/**/*.js",

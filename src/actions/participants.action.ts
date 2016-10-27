@@ -8,19 +8,19 @@ export type ParticipantsAction =
 
 
 
-//----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 export type AddParticipantAction = {
-    type: "ADD_PARTICIPANT";
+    type: 'ADD_PARTICIPANT';
     participant: IParticipant
 };
 export function createActionAddParticipant(p: IParticipant): AddParticipantAction {
     return {
-        type: "ADD_PARTICIPANT",
+        type: 'ADD_PARTICIPANT',
         participant: p
-    }
+    };
 }
 
-//----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 export type EditParticipantAction = {
     type: 'EDIT_PARTICIPANT';
     field: ('name' | 'group' | 'type');
@@ -37,7 +37,7 @@ export function createActionEditParticipant(id: number, field: ('name' | 'group'
     };
 }
 
-//----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 export type RemoveParticipantAction = {
     type: 'REMOVE_PARTICIPANT';
     id: number

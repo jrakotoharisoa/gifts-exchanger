@@ -28,7 +28,7 @@ describe('Criteria', () => {
         it('should return false if participant have the same group', () => {
             // Given
             const sender = { id: 1, name: 'name', group: 'group', type: 'type' };
-            const receiver = { id: 2, name: 'name', group: 'group', type: 'type' };;
+            const receiver = { id: 2, name: 'name', group: 'group', type: 'type' };
             // When
             const ok = NotSameGroup(sender, receiver);
             // Then
@@ -50,7 +50,7 @@ describe('Criteria', () => {
         it('should return false if sender type is new and receiver type is Old', () => {
             // Given
             const sender = { id: 1, name: 'name', group: 'group1', type: 'NEW' };
-            const receiver = { id: 2, name: 'name', group: 'group2', type: 'OLD' };;
+            const receiver = { id: 2, name: 'name', group: 'group2', type: 'OLD' };
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
@@ -92,7 +92,7 @@ describe('Criteria', () => {
         it('should return false if sender type is old and receiver type is new', () => {
             // Given
             const sender = { id: 1, name: 'name', group: 'group1', type: 'OLD' };
-            const receiver = { id: 2, name: 'name', group: 'group2', type: 'NEW' };;
+            const receiver = { id: 2, name: 'name', group: 'group2', type: 'NEW' };
             // When
             const ok = NotGiveToNewIfOld(sender, receiver);
             // Then

@@ -3,10 +3,10 @@ import { IParticipant, Criteria } from '../model';
 import { GiftsExchanger } from './GiftsExchanger';
 import { spy, stub } from 'sinon';
 describe('Gifts Exchanger', () => {
-    var data: IParticipant[] = [
-        { id: 1, name: 'Tom', type: "", group: "1" },
-        { id: 2, name: 'Anna', type: "", group: "2" },
-        { id: 3, name: 'Lea', type: "", group: "3" },
+    const data: IParticipant[] = [
+        { id: 1, name: 'Tom', type: '', group: '1' },
+        { id: 2, name: 'Anna', type: '', group: '2' },
+        { id: 3, name: 'Lea', type: '', group: '3' },
     ];
 
 
@@ -47,7 +47,7 @@ describe('Gifts Exchanger', () => {
             exchanger.run();
             // Then
             exchanger.relations.map(({receiver}) => {
-                expect(receiver).to.eql("UNKNOWN");
+                expect(receiver).to.eql('UNKNOWN');
             });
         });
     });
@@ -58,7 +58,7 @@ describe('Gifts Exchanger', () => {
             let criteria = spy();
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            exchanger.getReceiversFor(data[0])
+            exchanger.getReceiversFor(data[0]);
             // Then
             expect(criteria.called).to.be.true;
         });
@@ -69,7 +69,7 @@ describe('Gifts Exchanger', () => {
             criteria.returns(false);
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            const domain = exchanger.getReceiversFor(data[0])
+            const domain = exchanger.getReceiversFor(data[0]);
             // Then
             expect(domain.length).to.eql(0);
         });
@@ -80,7 +80,7 @@ describe('Gifts Exchanger', () => {
             criteria.returns(true);
             const exchanger = new GiftsExchanger(data, [criteria]);
             // When
-            const domain = exchanger.getReceiversFor(data[0])
+            const domain = exchanger.getReceiversFor(data[0]);
             // Then
             expect(domain.length).to.eql(data.length);
         });
@@ -121,7 +121,7 @@ describe('Gifts Exchanger', () => {
                 expect(domains[p.id]).to.exist;
                 expect(domains[p.id].length).to.eq(data.length);
             });
-        })
+        });
     });
 
     describe('getParticipantToProces', () => {
@@ -132,7 +132,6 @@ describe('Gifts Exchanger', () => {
                 }
                 return false;
             };
-            debugger
             const exchanger = new GiftsExchanger(data, [criteria]);
             const p2p = exchanger.getParticipantToProces();
             expect(p2p).to.eql(data[1]);

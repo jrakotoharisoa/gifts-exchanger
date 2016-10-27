@@ -1,17 +1,17 @@
 export interface IParticipant {
-    id: number,
-    name: string,
-    group: string,
-    type: string
+    id: number;
+    name: string;
+    group: string;
+    type: string;
 }
 
 export interface IRelations {
-    [key: number]: IGiftRelation
+    [key: number]: IGiftRelation;
 }
 
 export interface IGiftRelation {
-    sender: string,
-    receiver: string
+    sender: string;
+    receiver: string;
 }
 
 export type Criteria = (sender: IParticipant, receiver: IParticipant) => boolean;
