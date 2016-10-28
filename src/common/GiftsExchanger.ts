@@ -1,4 +1,4 @@
-import { IParticipant, IGiftRelation, Criteria } from '../model';
+import { IParticipant, IGifsExchange, Criteria } from '../model';
 
 export class GiftsExchanger {
     private participants: IParticipant[];
@@ -7,7 +7,7 @@ export class GiftsExchanger {
     private domains: {
         [s: string]: IParticipant[]
     };
-    relations: IGiftRelation[];
+    relations: IGifsExchange[];
 
 
     constructor(data: IParticipant[], criteria: Criteria[]) {

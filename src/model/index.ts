@@ -5,11 +5,8 @@ export interface IParticipant {
     type: string;
 }
 
-export interface IRelations {
-    [key: number]: IGiftRelation;
-}
 
-export interface IGiftRelation {
+export interface IGifsExchange {
     sender: string;
     receiver: string;
 }

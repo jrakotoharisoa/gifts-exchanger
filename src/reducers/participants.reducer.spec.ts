@@ -8,7 +8,7 @@ import {
 import { IParticipant } from '../model';
 describe('Participants Reducer', () => {
 
-    it('should init with an empty array', () => {
+    it('should init with an empty object', () => {
         const state = participantsReducer(undefined, undefined);
         expect(state).to.eql({});
     });

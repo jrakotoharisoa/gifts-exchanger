@@ -11,7 +11,8 @@ export type IParticipantsState =
         [id: string]: IParticipant
     };
 
-export function participantsReducer(state: IParticipantsState = {}, action: ParticipantsAction) {
+const initialState = {};
+export function participantsReducer(state: IParticipantsState = initialState, action: ParticipantsAction) {
     if (!action) {
         return state;
     }
