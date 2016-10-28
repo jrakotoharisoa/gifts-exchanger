@@ -1,4 +1,4 @@
-import { ExchangesAction, GenerateAction } from '../actions/exchanges.action';
+import { ExchangesAction, GenerateAction } from '../actions/exchanges';
 import { IGifsExchange } from '../model';
 import { GiftsExchanger } from '../common/GiftsExchanger';
 import {

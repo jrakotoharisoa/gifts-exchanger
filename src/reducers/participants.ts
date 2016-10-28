@@ -3,7 +3,7 @@ import {
     AddParticipantAction,
     EditParticipantAction,
     RemoveParticipantAction
-} from '../actions/participants.action';
+} from '../actions/participants';
 import { IParticipant } from '../model';
 
 export type IParticipantsState =

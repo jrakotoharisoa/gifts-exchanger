@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { exchangesReducer, IExchangesState } from './exchanges.reducer';
+import { exchangesReducer, IExchangesState } from './exchanges';
 import { IParticipant } from '../model';
-import { createActionGenerateExchange } from '../actions/exchanges.action';
+import { createActionGenerateExchange } from '../actions/exchanges';
 
 describe('Exchanges Reducer', () => {
     it('should init with an empty array', () => {

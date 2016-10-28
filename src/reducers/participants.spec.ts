@@ -1,10 +1,10 @@
 import { expect } from 'chai';
-import { participantsReducer, IParticipantsState } from './participants.reducer';
+import { participantsReducer, IParticipantsState } from './participants';
 import {
     createActionAddParticipant,
     createActionEditParticipant,
     createActionRemoveParticipant
-} from '../actions/participants.action';
+} from '../actions/participants';
 import { IParticipant } from '../model';
 describe('Participants Reducer', () => {
 
