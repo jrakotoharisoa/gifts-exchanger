@@ -42,17 +42,17 @@ export const LayoutComponent = function ({
                     </div>
                     <div className='row'>
                         <div className='col-xs-12' style={{ textAlign: 'right' }}>
-                            <button className='btn btn-danger'
-                                style={{ marginRight: '5px' }}
-                                onClick={(e) => onGenerationExchanges(participants)}
-                                disabled={participants.filter(p => p.name).length < 2}>
-                                GENERATE
-                            </button>
                             <button
                                 type='button'
                                 onClick={() => onAddParticipants()}
                                 className='btn btn-success' >
-                                ADD
+                                <i className='fa fa-plus fa-fw'></i> ADD
+                            </button>
+                            <button className='btn btn-danger'
+                                style={{ marginLeft: '5px' }}
+                                onClick={(e) => onGenerationExchanges(participants)}
+                                disabled={participants.filter(p => p.name).length < 2}>
+                                <i className='fa fa-random fa-fw'></i> GO
                             </button>
                         </div>
                     </div>
@@ -62,7 +62,10 @@ export const LayoutComponent = function ({
                 <div className={classResult} style={{ textAlign: 'center' }}>
                     {
                         exchanges.map(({sender, receiver}, index) => {
-                            return <div key={index}>{sender + ' '}give to {receiver}</div>;
+                            return (
+                                <div key={index}>
+                                    <i className='fa fa-gift'></i> {sender + ' '}gives to {receiver}
+                                </div>);
                         })
                     }
                 </div>

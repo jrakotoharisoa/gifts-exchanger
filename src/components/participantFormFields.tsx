@@ -22,7 +22,7 @@ export const ParticipantFormFieldsComponent = (props: IParticipantFormProps) => 
             </div>
             <div className='col-xs-4'>
                 <div className='form-group'>
-                    <label htmlFor='groupInput'>Famille</label>
+                    <label htmlFor='groupInput'>Family</label>
                     <input type='text'
                         className='form-control'
                         value={props.model.group}
@@ -31,20 +31,24 @@ export const ParticipantFormFieldsComponent = (props: IParticipantFormProps) => 
                         placeholder='Famille...' />
                 </div>
             </div>
-            <div className='col-xs-4'>
+            <div className='col-xs-3'>
                 <div className='form-group'>
-                    <label htmlFor='typeInput'>Catégorie</label>
+                    <label htmlFor='typeInput'>Type</label>
                     <select
                         className='form-control'
                         id='typeInput'
                         value={props.model.type}
                         onChange={((e) => props.handleFormField('type', e.target.value))}
                         >
-                        <option value='NEUTRAL'>Cousin(e)</option>
-                        <option value='OLD'>Oncle/Tante</option>
-                        <option value='NEW'>Apparenté(e)</option>
+                        <option value='NEUTRAL'>Cousin</option>
+                        <option value='OLD'>Uncle/Aunt</option>
+                        <option value='NEW'>Related</option>
                     </select>
                 </div>
+            </div>
+            <div className='col-xs-1 flex-xs-bottom' style={{ marginBottom: '1rem' }}>
+                <button type='button' className='btn btn-default'
+                    onClick={props.handleRemove}><i className='fa fa-trash'></i></button>
             </div>
         </div>
     );

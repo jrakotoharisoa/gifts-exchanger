@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+$enable-flex: true;
 // Core variables and mixins
 @import "../node_modules/bootstrap/scss/custom";
 @import "../node_modules/bootstrap/scss/variables";
@@ -40,7 +41,9 @@
 // Utility classes
 @import "../node_modules/bootstrap/scss/utilities";
 
-
+//@import "../node_modules/font-awesome/scss/font-awesome";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 .header{
     background-image: url('./images/cover.jpg');
     background-size: cover;
