@@ -12,7 +12,8 @@
     "cover": "nyc npm test",
     "start": "webpack-dev-server",
     "build": "npm run clean && webpack",
-    "predeploy": "npm run build",
+    "build-prod": "npm run clean && webpack -p",
+    "predeploy": "npm run build-prod",
     "deploy": "gh-pages -d dist"
   },
   "nyc": {
