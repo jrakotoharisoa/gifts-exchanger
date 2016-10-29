@@ -23,7 +23,7 @@ export const LayoutComponent = function ({
     onAddParticipants
 }: ILayoutProps) {
 
-    const classResult = 'col-md-12' + (exchanges.length > 0 ? ' results' : '');
+    const classResult = 'row' + (exchanges.length > 0 ? ' results' : '');
     return (
         <div className='container'>
             <div className='row'>
@@ -58,8 +58,8 @@ export const LayoutComponent = function ({
                     </div>
                 </div>
             </div>
-            <div className='row'>
-                <div className={classResult} style={{ textAlign: 'center' }}>
+            <div className={classResult}>
+                <div className='col-md-10 offset-md-1'>
                     {
                         exchanges.map(({sender, receiver}, index) => {
                             return (
