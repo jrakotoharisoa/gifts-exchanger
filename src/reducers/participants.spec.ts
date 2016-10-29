@@ -61,7 +61,9 @@ describe('Participants Reducer', () => {
             };
             // When
 
-            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'name', 'NewName'));
+            const actual = participantsReducer(
+                Object.freeze(initial),
+                createActionEditParticipant('0', 'name', 'NewName'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -85,7 +87,9 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'group', 'NewGroup'));
+            const actual = participantsReducer(
+                Object.freeze(initial),
+                createActionEditParticipant('0', 'group', 'NewGroup'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -109,7 +113,9 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'type', 'NewType'));
+            const actual = participantsReducer(
+                Object.freeze(initial),
+                createActionEditParticipant('0', 'type', 'NewType'));
             // Then
             expect(actual).to.eql(expected);
         });

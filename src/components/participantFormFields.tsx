@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IParticipant } from '../model';
 export interface IParticipantFormProps {
     model: IParticipant;
-    handleFormField: (p: string, v: string) => void
+    handleFormField: (p: string, v: string) => void;
 }
 
 export const ParticipantFormFieldsComponent = (props: IParticipantFormProps) => {
@@ -47,4 +47,4 @@ export const ParticipantFormFieldsComponent = (props: IParticipantFormProps) => 
             </div>
         </div>
     );
-}
+};

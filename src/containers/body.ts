@@ -22,7 +22,5 @@ const mapDispatchToProps = (dispatch) => {
         onAddParticipants: () => dispatch(createActionAddParticipant())
     };
 };
-console.log('before fail');
-console.log(LayoutComponent);
 
 export const BodyContainer = connect(mapStateToProps, mapDispatchToProps)(LayoutComponent);

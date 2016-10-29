@@ -16,7 +16,7 @@ export type IEditionFormProps = IEditionFormDispatchProps & IEditionFormOwnProps
 
 export class EditionFormComponent extends React.Component<IEditionFormProps, IParticipant> {
     constructor(props: IEditionFormProps) {
-        super(props)
+        super(props);
         this.state = props.model;
     }
 

@@ -6,4 +6,4 @@ export const SubmitButtonComponent = (props) => {
             <button type='submit' className='btn btn-success'>Add participant</button>
         </div>
     </div>);
-}
+};
