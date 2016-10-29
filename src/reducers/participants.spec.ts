@@ -133,7 +133,7 @@ describe('Participants Reducer', () => {
                 }
             };
             // When
-            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant(1));
+            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant('1'));
             // Then
             expect(actual).to.eql(initial);
         });
@@ -149,7 +149,7 @@ describe('Participants Reducer', () => {
             };
             const expected = {};
             // When
-            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant(0));
+            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant('0'));
             // Then
             expect(actual).to.eql(expected);
         });

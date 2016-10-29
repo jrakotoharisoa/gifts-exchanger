@@ -40,10 +40,10 @@ export const createActionEditParticipant = (id: string,
 // ----------------------------------------------------------------------------
 export type RemoveParticipantAction = {
     type: 'REMOVE_PARTICIPANT';
-    id: number
+    id: string
 }
 
-export const createActionRemoveParticipant = (id: number): RemoveParticipantAction => {
+export const createActionRemoveParticipant = (id: string): RemoveParticipantAction => {
     return {
         type: 'REMOVE_PARTICIPANT',
         id: id

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { IParticipant } from '../model';
 import { IAppState } from '../reducers';
 import { EditionFormComponent } from '../components/editionForm';
-import { createActionEditParticipant } from '../actions';
+import { createActionEditParticipant, createActionRemoveParticipant } from '../actions';
 
 
 function mapStateToProps(state, ownprops) {
@@ -16,7 +16,10 @@ function mapDispatchToProps(dispatch) {
             id: string,
             p: ('name' | 'group' | 'type'),
             v: string) =>
-            dispatch(createActionEditParticipant(id, p, v))
+            dispatch(createActionEditParticipant(id, p, v)
+            ),
+        onRemoveParticipant: (id: string) =>
+            dispatch(createActionRemoveParticipant(id))
     };
 }
 

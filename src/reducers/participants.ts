@@ -67,7 +67,7 @@ function EditParticipantReducer(state: IParticipantsState = {}, action: EditPart
 function RemoveParticipantReducer(state: IParticipantsState = {}, action: RemoveParticipantAction) {
     const res = {};
     for (let prop in state) {
-        if (prop !== action.id.toString()) {
+        if (prop !== action.id) {
             res[prop] = state[prop];
         }
     }

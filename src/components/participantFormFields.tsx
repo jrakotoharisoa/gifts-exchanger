@@ -3,6 +3,7 @@ import { IParticipant } from '../model';
 export interface IParticipantFormProps {
     model: IParticipant;
     handleFormField: (p: string, v: string) => void;
+    handleRemove: () => void;
 }
 
 export const ParticipantFormFieldsComponent = (props: IParticipantFormProps) => {
