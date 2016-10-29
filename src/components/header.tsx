@@ -7,7 +7,7 @@ export const HeaderComponent = () => {
     return (
         <header>
             <div className='jumbotron header'>
-                <h1 className='display-4'>
+                <h1 className='display-1'>
                     <span>Gifts Exchanger</span>
                 </h1>
             </div>
