@@ -11,12 +11,10 @@ export type ParticipantsAction =
 // ----------------------------------------------------------------------------
 export type AddParticipantAction = {
     type: 'ADD_PARTICIPANT';
-    participant: IParticipant
 };
-export const createActionAddParticipant = (p: IParticipant): AddParticipantAction => {
+export const createActionAddParticipant = (): AddParticipantAction => {
     return {
-        type: 'ADD_PARTICIPANT',
-        participant: p
+        type: 'ADD_PARTICIPANT'
     };
 };
 
@@ -25,10 +23,10 @@ export type EditParticipantAction = {
     type: 'EDIT_PARTICIPANT';
     field: ('name' | 'group' | 'type');
     value: string,
-    id: number
+    id: string
 }
 
-export const createActionEditParticipant = (id: number,
+export const createActionEditParticipant = (id: string,
     field: ('name' | 'group' | 'type'),
     value: string): EditParticipantAction => {
     return {

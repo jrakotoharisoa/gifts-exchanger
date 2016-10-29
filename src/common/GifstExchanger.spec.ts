@@ -4,9 +4,9 @@ import { GiftsExchanger } from './GiftsExchanger';
 import { spy, stub } from 'sinon';
 describe('Gifts Exchanger', () => {
     const data: IParticipant[] = [
-        { id: 1, name: 'Tom', type: '', group: '1' },
-        { id: 2, name: 'Anna', type: '', group: '2' },
-        { id: 3, name: 'Lea', type: '', group: '3' },
+        { id: '1', name: 'Tom', type: '', group: '1' },
+        { id: '2', name: 'Anna', type: '', group: '2' },
+        { id: '3', name: 'Lea', type: '', group: '3' },
     ];
 
 
@@ -127,7 +127,7 @@ describe('Gifts Exchanger', () => {
     describe('getParticipantToProces', () => {
         it('should return the first participant with smallest domain', () => {
             const criteria = function (sender: IParticipant, receiver: IParticipant) {
-                if (sender.id !== 2) {
+                if (sender.id !== '2') {
                     return true;
                 }
                 return false;

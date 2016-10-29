@@ -1,5 +1,5 @@
 export interface IParticipant {
-    id: number;
+    id: string;
     name: string;
     group: string;
     type: string;

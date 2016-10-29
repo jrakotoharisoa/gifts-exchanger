@@ -3,15 +3,23 @@ import {
     AddParticipantAction,
     EditParticipantAction,
     RemoveParticipantAction
-} from '../actions/participants';
+} from '../actions';
 import { IParticipant } from '../model';
-
+import * as uuid from 'node-uuid';
 export type IParticipantsState =
     {
         [id: string]: IParticipant
     };
 
-const initialState = {};
+const firstId = uuid.v1();
+const initialState = {
+    [firstId]: {
+        id: uuid.v1(),
+        name: '',
+        group: '',
+        type: 'NEUTRAL'
+    }
+};
 export function participantsReducer(state: IParticipantsState = initialState, action: ParticipantsAction) {
     if (!action) {
         return state;
@@ -32,14 +40,24 @@ export function participantsReducer(state: IParticipantsState = initialState, ac
 
 
 function AddParticipantReducer(state: IParticipantsState = {}, action: AddParticipantAction) {
-    return Object.assign(state, { [action.participant.id.toString()]: action.participant });
+    let initParticipant = {
+        id: uuid.v1(),
+        name: '',
+        group: '',
+        type: 'NEUTRAL'
+    };
+
+    return Object.assign({}, state, { [initParticipant.id]: initParticipant });
 }
 
 function EditParticipantReducer(state: IParticipantsState = {}, action: EditParticipantAction) {
-    return Object.assign(state, {
-        [action.id.toString()]: Object.assign(
+    if (!state[action.id]) {
+        return state;
+    }
+    return Object.assign({}, state, {
+        [action.id]: Object.assign(
             {},
-            state[action.id.toString()],
+            state[action.id],
             { [action.field]: action.value })
     });
 }

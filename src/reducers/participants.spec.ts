@@ -4,27 +4,21 @@ import {
     createActionAddParticipant,
     createActionEditParticipant,
     createActionRemoveParticipant
-} from '../actions/participants';
+} from '../actions';
 import { IParticipant } from '../model';
 describe('Participants Reducer', () => {
 
-    it('should init with an empty object', () => {
+    it('should init with an empty empyt participant', () => {
         const state = participantsReducer(undefined, undefined);
-        expect(state).to.eql({});
+        expect(Object.keys(state).length).to.eql(1);
     });
     describe('| Action - Add participant', () => {
         it('should add participant to state for participant id', () => {
             // Given
-            const participantToAdd: IParticipant = {
-                id: 0,
-                name: 'ParticipantName',
-                group: 'group',
-                type: 'type'
-            };
             // When
-            const state = participantsReducer(undefined, createActionAddParticipant(participantToAdd));
+            const state = participantsReducer(undefined, createActionAddParticipant());
             // Then
-            expect(state).to.eql({ '0': participantToAdd });
+            expect(Object.keys(state).length).to.eql(2);
         });
     });
 
@@ -33,14 +27,16 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(1, 'name', 'NewName'));
+            const actual = participantsReducer(
+                Object.freeze(initial),
+                createActionEditParticipant('1', 'name', 'NewName'));
             // Then
             expect(actual).to.eql(initial);
         });
@@ -49,7 +45,7 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
@@ -57,14 +53,15 @@ describe('Participants Reducer', () => {
             };
             const expected: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'NewName',
                     group: 'group',
                     type: 'type'
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, 'name', 'NewName'));
+
+            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'name', 'NewName'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -73,7 +70,7 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
@@ -81,14 +78,14 @@ describe('Participants Reducer', () => {
             };
             const expected: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'NewGroup',
                     type: 'type'
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, 'group', 'NewGroup'));
+            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'group', 'NewGroup'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -97,7 +94,7 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
@@ -105,14 +102,14 @@ describe('Participants Reducer', () => {
             };
             const expected: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'NewType'
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionEditParticipant(0, 'type', 'NewType'));
+            const actual = participantsReducer(Object.freeze(initial), createActionEditParticipant('0', 'type', 'NewType'));
             // Then
             expect(actual).to.eql(expected);
         });
@@ -123,14 +120,14 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
                 }
             };
             // When
-            const actual = participantsReducer(initial, createActionRemoveParticipant(1));
+            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant(1));
             // Then
             expect(actual).to.eql(initial);
         });
@@ -138,7 +135,7 @@ describe('Participants Reducer', () => {
             // Given
             const initial: IParticipantsState = {
                 ['0']: {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName',
                     group: 'group',
                     type: 'type'
@@ -146,7 +143,7 @@ describe('Participants Reducer', () => {
             };
             const expected = {};
             // When
-            const actual = participantsReducer(initial, createActionRemoveParticipant(0));
+            const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant(0));
             // Then
             expect(actual).to.eql(expected);
         });

@@ -1,4 +1,4 @@
-import { ExchangesAction, GenerateAction } from '../actions/exchanges';
+import { ExchangesAction, GenerateAction } from '../actions';
 import { IGifsExchange } from '../model';
 import { GiftsExchanger } from '../common/GiftsExchanger';
 import {
@@ -27,7 +27,7 @@ export function exchangesReducer(
 
 function generateExchangeReducer(state, {participants}: GenerateAction) {
     const exchanger = new GiftsExchanger(
-        participants,
+        participants.filter(p => p.name),
         [
             NotMyself,
             NotSameGroup,

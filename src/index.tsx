@@ -1,13 +1,18 @@
-import { createStore } from 'redux';
+
 import { Provider } from 'react-redux';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { reducers } from './reducers';
+import { getStore } from './store';
+import { AppComponent } from './components/app';
 
-const store = createStore(reducers);
+import '!style!css!sass!./main.scss';
+
+const appStore = getStore();
 
 render(
-    <div>Hello !</div>,
+    <Provider store={appStore} >
+        <AppComponent />
+    </Provider>,
     document.getElementById('main')
 );
 

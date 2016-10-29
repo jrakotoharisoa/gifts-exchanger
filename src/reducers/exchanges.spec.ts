@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { exchangesReducer, IExchangesState } from './exchanges';
 import { IParticipant } from '../model';
-import { createActionGenerateExchange } from '../actions/exchanges';
+import { createActionGenerateExchange } from '../actions';
 
 describe('Exchanges Reducer', () => {
     it('should init with an empty array', () => {
@@ -15,13 +15,13 @@ describe('Exchanges Reducer', () => {
             const initial: IExchangesState = [];
             const participants: IParticipant[] = [
                 {
-                    id: 0,
+                    id: '0',
                     name: 'ParticipantName0',
                     group: 'group1',
                     type: 'type'
                 },
                 {
-                    id: 1,
+                    id: '1',
                     name: 'ParticipantName1',
                     group: 'group2',
                     type: 'type'

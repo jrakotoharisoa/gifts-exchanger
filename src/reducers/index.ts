@@ -1,6 +1,16 @@
 import { combineReducers } from 'redux';
-import { participantsReducer } from './participants';
+import { participantsReducer, IParticipantsState } from './participants';
+import { exchangesReducer, IExchangesState } from './exchanges';
 
-export const reducers = combineReducers({
-    participants: participantsReducer
+export * from './participants';
+export * from './exchanges';
+
+export interface IAppState {
+    participants: IParticipantsState;
+    exchanges: IExchangesState;
+}
+
+export const rootReducer = combineReducers<IAppState>({
+    participants: participantsReducer,
+    exchanges: exchangesReducer
 });
