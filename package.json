@@ -11,7 +11,8 @@
     "coverage": "yarn run clean && tsc && istanbul cover _mocha -- dist/**/*.js",
     "cover": "nyc npm test",
     "start": "webpack-dev-server",
-    "build": "npm run clean && webpack"
+    "build": "npm run clean && webpack",
+    "deploy": "gh-pages -d dist"
   },
   "nyc": {
     "include": [
@@ -48,6 +49,7 @@
     "core-js": "^2.4.1",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
+    "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.24.0",
     "mocha": "^3.1.2",
     "node-sass": "^3.10.1",
