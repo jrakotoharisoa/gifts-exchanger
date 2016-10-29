@@ -14,7 +14,7 @@ export type IParticipantsState =
 const firstId = uuid.v1();
 const initialState = {
     [firstId]: {
-        id: uuid.v1(),
+        id: firstId,
         name: '',
         group: '',
         type: 'NEUTRAL'
@@ -54,12 +54,14 @@ function EditParticipantReducer(state: IParticipantsState = {}, action: EditPart
     if (!state[action.id]) {
         return state;
     }
-    return Object.assign({}, state, {
+    const stateResult = Object.assign({}, state, {
         [action.id]: Object.assign(
             {},
             state[action.id],
             { [action.field]: action.value })
     });
+
+    return stateResult;
 }
 
 function RemoveParticipantReducer(state: IParticipantsState = {}, action: RemoveParticipantAction) {
