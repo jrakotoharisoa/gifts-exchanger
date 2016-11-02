@@ -6,6 +6,8 @@ import {
 } from '../actions';
 import { IParticipant } from '../model';
 import * as uuid from 'node-uuid';
+
+
 export type IParticipantsState =
     {
         [id: string]: IParticipant
@@ -20,6 +22,7 @@ const initialState = {
         type: 'NEUTRAL'
     }
 };
+
 export function participantsReducer(state: IParticipantsState = initialState, action: ParticipantsAction) {
     if (!action) {
         return state;
@@ -73,3 +76,13 @@ function RemoveParticipantReducer(state: IParticipantsState = {}, action: Remove
     }
     return res;
 }
+
+// ------------------------------------------------------------------------------
+// SELECTOR
+export const getArrayOfParticipants = (participants): IParticipant[] => {
+    const arrayOfParticipants = [];
+    for (let prop in participants) {
+        arrayOfParticipants.push(participants[prop]);
+    }
+    return arrayOfParticipants;
+};
