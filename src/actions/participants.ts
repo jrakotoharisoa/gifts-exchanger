@@ -12,11 +12,10 @@ export type ParticipantsAction =
 export type AddParticipantAction = {
     type: 'ADD_PARTICIPANT';
 };
-export const createActionAddParticipant = (): AddParticipantAction => {
-    return {
+export const createActionAddParticipant = (): AddParticipantAction =>
+    ({
         type: 'ADD_PARTICIPANT'
-    };
-};
+    });
 
 // ----------------------------------------------------------------------------
 export type EditParticipantAction = {
@@ -28,14 +27,13 @@ export type EditParticipantAction = {
 
 export const createActionEditParticipant = (id: string,
     field: ('name' | 'group' | 'type'),
-    value: string): EditParticipantAction => {
-    return {
+    value: string): EditParticipantAction =>
+    ({
         type: 'EDIT_PARTICIPANT',
         id: id,
         field: field,
         value: value
-    };
-};
+    });
 
 // ----------------------------------------------------------------------------
 export type RemoveParticipantAction = {
@@ -43,9 +41,8 @@ export type RemoveParticipantAction = {
     id: string
 }
 
-export const createActionRemoveParticipant = (id: string): RemoveParticipantAction => {
-    return {
+export const createActionRemoveParticipant = (id: string): RemoveParticipantAction =>
+    ({
         type: 'REMOVE_PARTICIPANT',
         id: id
-    };
-};
+    });

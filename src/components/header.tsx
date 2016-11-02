@@ -3,8 +3,8 @@ import * as React from 'react';
 /**
  * Header component
  */
-export const HeaderComponent = () => {
-    return (
+export const HeaderComponent = () =>
+    (
         <header>
             <div className='jumbotron header'>
                 <h1 className='display-1'>
@@ -13,4 +13,5 @@ export const HeaderComponent = () => {
             </div>
         </header>
     );
-};
+
+

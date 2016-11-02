@@ -16,11 +16,9 @@ const mapStateToProps = ({participants, exchanges}, ownProps) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onGenerationExchanges: (ps: IParticipant[]) => dispatch(createActionGenerateExchange(ps)),
-        onAddParticipants: () => dispatch(createActionAddParticipant())
-    };
-};
 
-export const BodyContainer = connect(mapStateToProps, mapDispatchToProps)(LayoutComponent);
+export const BodyContainer = connect(mapStateToProps, {
+    'onGenerationExchanges': createActionGenerateExchange,
+    'onAddParticipants': createActionAddParticipant
+})(LayoutComponent);
+

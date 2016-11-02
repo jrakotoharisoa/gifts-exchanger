@@ -1,18 +1,15 @@
 
-import { Provider } from 'react-redux';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { getStore } from './store';
-import { AppComponent } from './components/app';
+import { configureStore } from './configureStore';
+import { RootComponent } from './components/root';
 
 import '!style!css!sass!./main.scss';
 
-const appStore = getStore();
+const appStore = configureStore();
 
 render(
-    <Provider store={appStore} >
-        <AppComponent />
-    </Provider>,
+    <RootComponent store={appStore} />,
     document.getElementById('main')
 );
 
