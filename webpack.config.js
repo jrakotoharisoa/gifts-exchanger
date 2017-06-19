@@ -21,47 +21,102 @@ const pack = {
         filename: '[name].[hash].js',
     },
     resolve: {
-        extensions: ['', '.js', '.ts', '.tsx'],
+        modules: [
+            path.join(__dirname, "src"),
+            "node_modules"
+        ],
+        extensions: ['.ts', '.tsx', '.js'],
     },
-    postcss: function () {
-        return [require('precss'), require('autoprefixer')];
-    },
+    // postcss: function () {
+    //     return [require('precss'), require('autoprefixer')];
+    // },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
-                include: /src/,
+                loader: 'ts-loader'
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" },
+                ]
             },
             {
                 test: /\.css$/,
-                loader: 'style!css?sourceMap'
-            }, {
-                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
-            }, {
-                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/font-woff"
-            }, {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=application/octet-stream"
-            }, {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file"
-            }, {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url?limit=10000&mimetype=image/svg+xml"
+                use: [
+                    { loader:'style-loader'},
+                    {
+                        loader:'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                ]
             },
-            { test: /\.jpg$/, loader: 'file' }
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader:'url-loader',
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/font-woff'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader:'url-loader',
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/font-woff'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader:'url-loader',
+                        options: {
+                            limit: 10000,
+                            mimetype: 'application/octet-stream'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file-loader"
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader:'url-loader',
+                        options: {
+                            limit: 10000,
+                            mimetype: 'image/svg+xml'
+                        }
+                    }
+                ]
+            },
+            { test: /\.jpg$/, loader: 'file-loader' }
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({ template: './index.html' }),
-        new CommonsChunkPlugin('vendor', '[name].[hash].js'),
+        new CommonsChunkPlugin({
+            name: 'vendor',
+            filename: '[name].[hash].js'
+        }),
         new CopyWebpackPlugin([{ from: 'src/images', to: 'images' }]),
         new CircularDependencyPlugin({
             // exclude detection of files based on a RegExp

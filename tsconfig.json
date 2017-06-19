@@ -5,6 +5,16 @@
         "noImplicitAny": false,
         "sourceMap": true,
         "jsx": "react",
-        "outDir": "./dist/"
-    }
+        "outDir": "./dist/",
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "typeRoots": [
+            "node_modules/@types/"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
