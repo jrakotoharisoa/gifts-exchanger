@@ -1,9 +1,12 @@
-language: javascript
+language: node_js
 cache:
   directories:
     - node_modules
 notifications:
   email: false
+node_js:
+  - '7'
+  - '8'
 script:
   - npm run build
 
