@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
 # Gifts-exchange
 
 Little app that generates gifts exchanges from a list of participants.
