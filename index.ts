@@ -1,11 +1,11 @@
-import { GiftsExchanger } from './src/common/giftsExchanger';
+import { GiftsExchanger } from './src/common/GiftsExchanger';
 import { CSVReader } from './src/common/CSVReader';
 import {
     NotMyself,
     NotSameGroup,
     NotGiveToOldIfNew,
     NotGiveToNewIfOld
-} from './src/common/criteria';
+} from './src/common/Criteria';
 
 console.log('- Start -');
 const filename = process.argv[2];

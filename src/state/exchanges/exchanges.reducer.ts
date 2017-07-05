@@ -4,7 +4,7 @@ import {
     NotSameGroup,
     NotGiveToOldIfNew,
     NotGiveToNewIfOld
-} from '../../common/criteria';
+} from '../../common/Criteria';
 import {Action} from '../actions';
 import {initialExchangesState, IExchangesState} from './exchanges.model';
 import {GenerateAction} from './exchanges.action';
