@@ -1,17 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var participants_1 = require("./participants");
-var actions_1 = require("../actions");
+var _1 = require(".");
 describe('Participants Reducer', function () {
     it('should init with an empty empyt participant', function () {
-        var state = participants_1.participantsReducer(undefined, undefined);
+        var state = _1.participantsReducer(undefined, undefined);
         expect(Object.keys(state).length).toEqual(1);
     });
     describe('| Action - Add participant', function () {
         it('should add participant to state for participant id', function () {
             // Given
             // When
-            var state = participants_1.participantsReducer(undefined, actions_1.createActionAddParticipant());
+            var state = _1.participantsReducer(undefined, _1.createActionAddParticipant());
             // Then
             expect(Object.keys(state).length).toEqual(2);
         });
@@ -28,7 +27,7 @@ describe('Participants Reducer', function () {
                 },
                 _a);
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionEditParticipant('1', 'name', 'NewName'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionEditParticipant('1', 'name', 'NewName'));
             // Then
             expect(actual).toEqual(initial);
             var _a;
@@ -52,7 +51,7 @@ describe('Participants Reducer', function () {
                 },
                 _b);
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionEditParticipant('0', 'name', 'NewName'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionEditParticipant('0', 'name', 'NewName'));
             // Then
             expect(actual).toEqual(expected);
             var _a, _b;
@@ -76,7 +75,7 @@ describe('Participants Reducer', function () {
                 },
                 _b);
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionEditParticipant('0', 'group', 'NewGroup'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionEditParticipant('0', 'group', 'NewGroup'));
             // Then
             expect(actual).toEqual(expected);
             var _a, _b;
@@ -100,7 +99,7 @@ describe('Participants Reducer', function () {
                 },
                 _b);
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionEditParticipant('0', 'type', 'NewType'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionEditParticipant('0', 'type', 'NewType'));
             // Then
             expect(actual).toEqual(expected);
             var _a, _b;
@@ -118,7 +117,7 @@ describe('Participants Reducer', function () {
                 },
                 _a);
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionRemoveParticipant('1'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionRemoveParticipant('1'));
             // Then
             expect(actual).toEqual(initial);
             var _a;
@@ -135,7 +134,7 @@ describe('Participants Reducer', function () {
                 _a);
             var expected = {};
             // When
-            var actual = participants_1.participantsReducer(Object.freeze(initial), actions_1.createActionRemoveParticipant('0'));
+            var actual = _1.participantsReducer(Object.freeze(initial), _1.createActionRemoveParticipant('0'));
             // Then
             expect(actual).toEqual(expected);
             var _a;

@@ -1,0 +1,1 @@
+{"version":3,"file":"participants.model.js","sourceRoot":"","sources":["../../../../src/state/participants/participants.model.ts"],"names":[],"mappings":";;AAAA,gCAAkC;AAOlC,IAAM,OAAO,GAAG,IAAI,CAAC,EAAE,EAAE,CAAC;AACb,QAAA,wBAAwB;IACjC,GAAC,OAAO,IAAG;QACP,EAAE,EAAE,OAAO;QACX,IAAI,EAAE,EAAE;QACR,KAAK,EAAE,EAAE;QACT,IAAI,EAAE,SAAS;KAClB;QACH"}

@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var exchanges_1 = require("./exchanges");
-var actions_1 = require("../actions");
+var _1 = require(".");
 describe('Exchanges Reducer', function () {
     it('should init with an empty array', function () {
-        var state = exchanges_1.exchangesReducer(undefined, undefined);
+        var state = _1.exchangesReducer(undefined, undefined);
         expect(state).toEqual([]);
     });
     describe('| Action - Generate', function () {
@@ -26,10 +25,10 @@ describe('Exchanges Reducer', function () {
                 }
             ];
             // When
-            var actual = exchanges_1.exchangesReducer(initial, actions_1.createActionGenerateExchange(participants));
+            var actual = _1.exchangesReducer(initial, _1.createActionGenerateExchange(participants));
             // Then
             expect(actual.length).toEqual(2);
         });
     });
 });
-//# sourceMappingURL=exchanges.spec.js.map
+//# sourceMappingURL=exchanges.reducer.spec.js.map

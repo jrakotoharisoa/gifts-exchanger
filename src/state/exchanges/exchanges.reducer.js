@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var GiftsExchanger_1 = require("../common/GiftsExchanger");
-var criteria_1 = require("../common/criteria");
-var initialState = [];
+var GiftsExchanger_1 = require("../../common/GiftsExchanger");
+var criteria_1 = require("../../common/criteria");
+var exchanges_model_1 = require("./exchanges.model");
 function exchangesReducer(state, action) {
-    if (state === void 0) { state = initialState; }
+    if (state === void 0) { state = exchanges_model_1.initialExchangesState; }
     if (!action) {
         return state;
     }
@@ -27,4 +27,4 @@ function generateExchangeReducer(_state, _a) {
     exchanger.run();
     return exchanger.relations;
 }
-//# sourceMappingURL=exchanges.js.map
+//# sourceMappingURL=exchanges.reducer.js.map

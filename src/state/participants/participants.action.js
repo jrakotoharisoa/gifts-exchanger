@@ -19,4 +19,4 @@ exports.createActionRemoveParticipant = function (id) {
         id: id
     });
 };
-//# sourceMappingURL=participants.js.map
+//# sourceMappingURL=participants.action.js.map

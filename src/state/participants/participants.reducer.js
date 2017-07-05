@@ -10,17 +10,9 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var uuid = require("node-uuid");
-var firstId = uuid.v1();
-var initialState = (_a = {},
-    _a[firstId] = {
-        id: firstId,
-        name: '',
-        group: '',
-        type: 'NEUTRAL'
-    },
-    _a);
+var participants_model_1 = require("./participants.model");
 function participantsReducer(state, action) {
-    if (state === void 0) { state = initialState; }
+    if (state === void 0) { state = participants_model_1.initialParticipantsState; }
     if (!action) {
         return state;
     }
@@ -64,14 +56,4 @@ function RemoveParticipantReducer(state, _a) {
     var _b = id, toDelete = state[_b], result = __rest(state, [typeof _b === "symbol" ? _b : _b + ""]);
     return result;
 }
-// ------------------------------------------------------------------------------
-// SELECTOR
-exports.getArrayOfParticipants = function (participants) {
-    var arrayOfParticipants = [];
-    for (var prop in participants) {
-        arrayOfParticipants.push(participants[prop]);
-    }
-    return arrayOfParticipants;
-};
-var _a;
-//# sourceMappingURL=participants.js.map
+//# sourceMappingURL=participants.reducer.js.map

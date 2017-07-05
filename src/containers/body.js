@@ -1,17 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_redux_1 = require("react-redux");
-var reducers_1 = require("../reducers");
-var actions_1 = require("../actions");
 var layout_1 = require("../components/layout");
+var exchanges_1 = require("../state/exchanges");
+var participants_1 = require("../state/participants");
+var selectors_1 = require("../state/selectors");
 var mapStateToProps = function (state) {
     return ({
-        participants: reducers_1.getArrayOfParticipants(state),
-        exchanges: reducers_1.getExchanges(state)
+        participants: selectors_1.getArrayOfParticipants(state),
+        exchanges: selectors_1.getExchanges(state)
     });
 };
 exports.BodyContainer = react_redux_1.connect(mapStateToProps, {
-    'onGenerationExchanges': actions_1.createActionGenerateExchange,
-    'onAddParticipants': actions_1.createActionAddParticipant
+    'onGenerationExchanges': exchanges_1.createActionGenerateExchange,
+    'onAddParticipants': participants_1.createActionAddParticipant
 })(layout_1.LayoutComponent);
 //# sourceMappingURL=body.js.map
