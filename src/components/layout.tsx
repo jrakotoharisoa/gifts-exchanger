@@ -25,14 +25,14 @@ export const LayoutComponent = function ({
 
     const classResult = 'row' + (exchanges.length > 0 ? ' results' : '');
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="row">
+        <div className='container'>
+            <div className='row'>
+                <div className='col-md-12'>
+                    <div className='row'>
                         {
                             participants.map((p) => {
                                 return (
-                                    <div className="col-xs-12" key={p.id}>
+                                    <div className='col-xs-12' key={p.id}>
                                         <form>
                                             <EditionFormContainer model={p} />
                                         </form>
@@ -40,31 +40,31 @@ export const LayoutComponent = function ({
                             })
                         }
                     </div>
-                    <div className="row">
-                        <div className="col-xs-12" style={{ textAlign: 'right' }}>
+                    <div className='row'>
+                        <div className='col-xs-12' style={{ textAlign: 'right' }}>
                             <button
-                                type="button"
+                                type='button'
                                 onClick={() => onAddParticipants()}
-                                className="btn btn-success" >
-                                <i className="fa fa-plus fa-fw"></i> ADD
+                                className='btn btn-success' >
+                                <i className='fa fa-plus fa-fw'></i> ADD
                             </button>
-                            <button className="btn btn-danger"
+                            <button className='btn btn-danger'
                                 style={{ marginLeft: '5px' }}
                                 onClick={() => onGenerationExchanges(participants)}
                                 disabled={participants.filter(p => p.name).length < 2}>
-                                <i className="fa fa-random fa-fw"></i> GO
+                                <i className='fa fa-random fa-fw'></i> GO
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className={classResult}>
-                <div className="col-md-10 offset-md-1">
+                <div className='col-md-10 offset-md-1'>
                     {
                         exchanges.map(({sender, receiver}, index) => {
                             return (
                                 <div key={index}>
-                                    <i className="fa fa-gift"></i> {sender + ' '}gives to {receiver}
+                                    <i className='fa fa-gift'></i> {sender + ' '}gives to {receiver}
                                 </div>);
                         })
                     }
