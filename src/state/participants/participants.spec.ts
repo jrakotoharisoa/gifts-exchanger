@@ -1,9 +1,10 @@
-import { participantsReducer, IParticipantsState } from './participants';
 import {
+    participantsReducer,
+    IParticipantsState,
     createActionAddParticipant,
     createActionEditParticipant,
     createActionRemoveParticipant
-} from '../actions';
+} from '.';
 describe('Participants Reducer', () => {
 
     it('should init with an empty empyt participant', () => {

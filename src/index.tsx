@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { render } from 'react-dom';
-import { configureStore } from './configureStore';
+import { configureStore } from './state/configureStore';
 import { RootComponent } from './components/root';
 
 import './main.scss';

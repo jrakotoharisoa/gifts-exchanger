@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AppComponent } from './app';
 import {Provider, Store} from 'react-redux';
-import {IAppState} from '../reducers/index';
+import {IAppState} from '../state';
 
 interface IRootProps {
     store: Store<IAppState>;

@@ -1,6 +1,5 @@
-import { exchangesReducer, IExchangesState } from './exchanges';
-import { IParticipant } from '../model';
-import { createActionGenerateExchange } from '../actions';
+import {exchangesReducer, IExchangesState, createActionGenerateExchange} from '.';
+import {IParticipant} from '../../model';
 
 describe('Exchanges Reducer', () => {
     it('should init with an empty array', () => {

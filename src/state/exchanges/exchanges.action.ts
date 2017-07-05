@@ -1,7 +1,8 @@
-import { IParticipant } from '../model';
 
-export type ExchangesAction =
-    GenerateAction;
+
+import {IParticipant} from '../../model';
+
+export type ExchangesAction = GenerateAction;
 
 
 // ----------------------------------------------------------------------------

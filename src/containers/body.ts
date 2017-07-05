@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
-import { IAppState, getArrayOfParticipants, getExchanges } from '../reducers';
-import { createActionGenerateExchange, createActionAddParticipant } from '../actions';
 import { LayoutComponent } from '../components/layout';
+import {createActionGenerateExchange} from '../state/exchanges';
+import {createActionAddParticipant} from '../state/participants';
+import {IAppState} from '../state';
+import {getArrayOfParticipants, getExchanges} from '../state/selectors';
 
 const mapStateToProps = (state: IAppState) =>
     ({

@@ -1,29 +1,10 @@
-import {
-    Action,
-    AddParticipantAction,
-    EditParticipantAction,
-    RemoveParticipantAction
-} from '../actions';
-import { IParticipant } from '../model';
+
 import * as uuid from 'node-uuid';
+import {Action} from '../actions';
+import {initialParticipantsState, IParticipantsState} from './participants.model';
+import {AddParticipantAction, EditParticipantAction, RemoveParticipantAction} from './participants.action';
 
-
-export type IParticipantsState =
-    {
-        [id: string]: IParticipant
-    };
-
-const firstId = uuid.v1();
-const initialState = {
-    [firstId]: {
-        id: firstId,
-        name: '',
-        group: '',
-        type: 'NEUTRAL'
-    }
-};
-
-export function participantsReducer(state: IParticipantsState = initialState, action: Action) {
+export function participantsReducer(state: IParticipantsState = initialParticipantsState, action: Action) {
     if (!action) {
         return state;
     }
@@ -72,12 +53,4 @@ function RemoveParticipantReducer(state: IParticipantsState = {}, {id}: RemovePa
     return result;
 }
 
-// ------------------------------------------------------------------------------
-// SELECTOR
-export const getArrayOfParticipants = (participants: IParticipantsState): Array<IParticipant> => {
-    const arrayOfParticipants = [];
-    for (let prop in participants) {
-        arrayOfParticipants.push(participants[prop]);
-    }
-    return arrayOfParticipants;
-};
+

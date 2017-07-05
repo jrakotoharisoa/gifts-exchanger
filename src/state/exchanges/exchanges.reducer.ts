@@ -1,17 +1,16 @@
-import {Action, GenerateAction} from '../actions';
-import {IGifsExchange} from '../model';
-import { GiftsExchanger } from '../common/GiftsExchanger';
+import { GiftsExchanger } from '../../common/GiftsExchanger';
 import {
     NotMyself,
     NotSameGroup,
     NotGiveToOldIfNew,
     NotGiveToNewIfOld
-} from '../common/criteria';
-export type IExchangesState = Array<IGifsExchange>;
+} from '../../common/criteria';
+import {Action} from '../actions';
+import {initialExchangesState, IExchangesState} from './exchanges.model';
+import {GenerateAction} from './exchanges.action';
 
-const initialState: Array<IGifsExchange> = [];
 export function exchangesReducer(
-    state: IExchangesState = initialState,
+    state: IExchangesState = initialExchangesState,
     action: Action) {
 
     if (!action) {
