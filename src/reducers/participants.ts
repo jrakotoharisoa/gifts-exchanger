@@ -1,5 +1,5 @@
 import {
-    ParticipantsAction,
+    Action,
     AddParticipantAction,
     EditParticipantAction,
     RemoveParticipantAction
@@ -23,7 +23,7 @@ const initialState = {
     }
 };
 
-export function participantsReducer(state: IParticipantsState = initialState, action: ParticipantsAction) {
+export function participantsReducer(state: IParticipantsState = initialState, action: Action) {
     if (!action) {
         return state;
     }

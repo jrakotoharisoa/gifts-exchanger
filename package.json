@@ -12,8 +12,8 @@
     "coverage": "yarn run clean && tsc && istanbul cover _mocha -- dist/**/*.js",
     "cover": "nyc npm test",
     "start": "webpack-dev-server",
-    "build": "npm run clean && webpack",
-    "build-prod": "npm run clean && webpack -p",
+    "build": "npm run clean && webpack && npm run test",
+    "build-prod": "npm run clean && webpack -p && npm run test",
     "predeploy": "npm run build-prod",
     "deploy": "gh-pages -d dist",
     "cmd": "ts-node index.ts"
