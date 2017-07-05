@@ -2,6 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "JEST Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+            "stopOnEntry": false,
+            "args": [
+                "--runInBand",
+                "--config",
+                "jestconfig.json"
+            ],
+            "cwd": "${workspaceRoot}",
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "sourceMaps": true,
+            "preLaunchTask": "tsc"
+        },
+        {
             "name": "Launch",
             "type": "node",
             "request": "launch",

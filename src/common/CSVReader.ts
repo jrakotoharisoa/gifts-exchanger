@@ -14,7 +14,7 @@ export class CSVReader {
         return new Promise<IParticipant[]>(
             (resolve) => {
                 const readStream = fs.createReadStream(this.file);
-                let results = [];
+                let results: Array<any> = [];
                 let index = 0;
 
                 let csvStream = csv.parse({
@@ -22,7 +22,7 @@ export class CSVReader {
                     ignoreEmpty: true,
                     trim: true
                 })
-                    .on('data', function ([name, group, type]) {
+                    .on('data', function ([name, group, type]: Array<string>) {
                         index++;
                         results.push({
                             id: index,

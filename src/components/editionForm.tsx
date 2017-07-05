@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { IParticipant } from '../model';
-import { IAppState } from '../reducers';
 import { ParticipantFormFieldsComponent } from './participantFormFields';
 
 
@@ -21,9 +20,10 @@ export class EditionFormComponent extends React.Component<IEditionFormProps, IPa
         this.state = props.model;
     }
 
-    handleFormField(prop, value) {
-        let stateDiff = {};
-        stateDiff[prop] = value;
+    handleFormField(prop: ('name' | 'group' | 'type'), value: string) {
+        let stateDiff = {
+            [prop]: value
+        };
         this.setState(Object.assign(this.state, stateDiff));
         this.props.onEditParticipant(this.state.id, prop, value);
     }
@@ -38,5 +38,5 @@ export class EditionFormComponent extends React.Component<IEditionFormProps, IPa
                 handleRemove={this.handleRemove.bind(this)}
                 />
         );
-    };
+    }
 }

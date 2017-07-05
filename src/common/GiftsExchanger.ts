@@ -11,12 +11,11 @@ export class GiftsExchanger {
 
 
     constructor(data: IParticipant[], criteria: Criteria[]) {
-        const that = this;
-        const dataToUSe = [].concat(data);
+        const dataToUSe = [...data];
         shuffle(dataToUSe);
-        this.availableParticipants = [].concat(dataToUSe);
+        this.availableParticipants = [...dataToUSe];
         this.criteria = criteria;
-        this.participants = [].concat(dataToUSe);
+        this.participants = [...dataToUSe];
         this.relations = [];
         this.domains = this.getParticipantsDomain();
     }
@@ -26,7 +25,7 @@ export class GiftsExchanger {
     }
 
     getParticipantsDomain() {
-        let res = {};
+        let res: {[key: string]: IParticipant[]} = {};
         this.participants.map((p) => {
             const receivers: IParticipant[] = this.getReceiversFor(p);
             res[p.id] = receivers;
@@ -34,10 +33,13 @@ export class GiftsExchanger {
         return res;
     }
 
-    getParticipantToProces(): IParticipant {
+    getParticipantToProcess(): IParticipant {
+        console.log(this.participants);
         let sortedAvailable = this.participants.sort((a, b) => {
-            const aDomainLength = this.domains[a.id].length;
-            const bDomainLength = this.domains[b.id].length;
+            const aDomain = this.domains[a.id];
+            const bDomain = this.domains[b.id];
+            const aDomainLength = aDomain && aDomain.length || 0;
+            const bDomainLength = bDomain && bDomain.length || 0;
             return aDomainLength < bDomainLength ?
                 -1 : aDomainLength > bDomainLength ?
                     1 : 0;
@@ -49,9 +51,9 @@ export class GiftsExchanger {
         if (this.IsComplete()) {
             return;
         }
-        const sender = this.getParticipantToProces();
+        const sender = this.getParticipantToProcess();
         const curParticipantDomain = this.domains[sender.id];
-        if (curParticipantDomain.length === 0) {
+        if (!curParticipantDomain || curParticipantDomain.length === 0) {
             // TODO: should get back
             this.relations.push({
                 sender: sender.name,
@@ -69,12 +71,11 @@ export class GiftsExchanger {
             this.availableParticipants = this.availableParticipants.filter(({ id }) => id !== receiverId);
             this.participants = this.participants.filter(({ id }) => id !== sender.id);
         }
-
         this.domains = this.getParticipantsDomain();
         this.run();
     }
 
-    getReceiversFor(participant): IParticipant[] {
+    getReceiversFor(participant: IParticipant): IParticipant[] {
         const domain = this.availableParticipants
             .filter((p: IParticipant) => {
                 for (let c of this.criteria) {
@@ -92,13 +93,13 @@ export class GiftsExchanger {
     }
 }
 
-function getRandomInt(min, max) {
+function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function shuffle(a) {
+function shuffle(a: any[]) {
     for (let i = a.length; i; i--) {
         let j = Math.floor(Math.random() * i);
         [a[i - 1], a[j]] = [a[j], a[i - 1]];

@@ -2,8 +2,11 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "noImplicitAny": false,
+        "noImplicitAny": true,
         "sourceMap": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "jsx": "react",
         "outDir": "./dist/",
         "lib": [

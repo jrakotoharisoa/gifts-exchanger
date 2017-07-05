@@ -42,7 +42,7 @@ export function participantsReducer(state: IParticipantsState = initialState, ac
 
 
 
-function AddParticipantReducer(state: IParticipantsState = {}, action: AddParticipantAction) {
+function AddParticipantReducer(state: IParticipantsState = {}, _action: AddParticipantAction) {
     let initParticipant = {
         id: uuid.v1(),
         name: '',
@@ -67,19 +67,14 @@ function EditParticipantReducer(state: IParticipantsState = {}, action: EditPart
     return stateResult;
 }
 
-function RemoveParticipantReducer(state: IParticipantsState = {}, action: RemoveParticipantAction) {
-    const res = {};
-    for (let prop in state) {
-        if (prop !== action.id) {
-            res[prop] = state[prop];
-        }
-    }
-    return res;
+function RemoveParticipantReducer(state: IParticipantsState = {}, {id}: RemoveParticipantAction): IParticipantsState {
+    const {[id]: toDelete , ...result} = state;
+    return result;
 }
 
 // ------------------------------------------------------------------------------
 // SELECTOR
-export const getArrayOfParticipants = (participants): IParticipant[] => {
+export const getArrayOfParticipants = (participants: IParticipantsState): Array<IParticipant> => {
     const arrayOfParticipants = [];
     for (let prop in participants) {
         arrayOfParticipants.push(participants[prop]);

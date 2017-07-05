@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import { IAppState, getArrayOfParticipants, getExchanges } from '../reducers';
 import { createActionGenerateExchange, createActionAddParticipant } from '../actions';
-import { IParticipant } from '../model';
-import { LayoutComponent, ILayoutStateProps, ILayoutDispatchProps } from '../components/layout';
+import { LayoutComponent } from '../components/layout';
 
-const mapStateToProps = (state, ownProps) =>
+const mapStateToProps = (state: IAppState) =>
     ({
         participants: getArrayOfParticipants(state),
         exchanges: getExchanges(state)

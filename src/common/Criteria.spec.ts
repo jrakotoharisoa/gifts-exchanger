@@ -1,5 +1,5 @@
 import { NotMyself, NotSameGroup, NotGiveToOldIfNew, NotGiveToNewIfOld } from './Criteria';
-import { expect } from 'chai';
+
 describe('Criteria', () => {
 
     describe('[ NotMyself ]', () => {
@@ -10,7 +10,7 @@ describe('Criteria', () => {
             // When
             const ok = NotMyself(sender, receiver);
             // Then
-            expect(ok).to.be.false;
+            expect(ok).toBeFalsy();
         });
 
         it('should return true if participant not have the same id', () => {
@@ -20,7 +20,7 @@ describe('Criteria', () => {
             // When
             const ok = NotMyself(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
     });
 
@@ -32,7 +32,7 @@ describe('Criteria', () => {
             // When
             const ok = NotSameGroup(sender, receiver);
             // Then
-            expect(ok).to.be.false;
+            expect(ok).toBeFalsy();
         });
 
         it('should return true if participant not have the same group', () => {
@@ -42,7 +42,7 @@ describe('Criteria', () => {
             // When
             const ok = NotSameGroup(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
     });
 
@@ -54,7 +54,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
-            expect(ok).to.be.false;
+            expect(ok).toBeFalsy();
         });
 
         it('should return true if sender type is new and receiver type is new', () => {
@@ -64,7 +64,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
 
         it('should return true if sender type is new and receiver type is neutral', () => {
@@ -74,7 +74,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
 
         it('should return true if sender is not new', () => {
@@ -84,7 +84,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
     });
 
@@ -96,7 +96,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToNewIfOld(sender, receiver);
             // Then
-            expect(ok).to.be.false;
+            expect(ok).toBeFalsy();
         });
 
         it('should return true if sender type is old and receiver type is old', () => {
@@ -106,7 +106,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToNewIfOld(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
 
         it('should return true if sender type is old and receiver type is neutral', () => {
@@ -116,7 +116,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToNewIfOld(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
 
         it('should return true if sender is not old', () => {
@@ -126,7 +126,7 @@ describe('Criteria', () => {
             // When
             const ok = NotGiveToOldIfNew(sender, receiver);
             // Then
-            expect(ok).to.be.true;
+            expect(ok).toBeTruthy();
         });
     });
 });

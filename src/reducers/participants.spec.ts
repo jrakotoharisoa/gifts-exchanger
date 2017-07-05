@@ -1,16 +1,14 @@
-import { expect } from 'chai';
 import { participantsReducer, IParticipantsState } from './participants';
 import {
     createActionAddParticipant,
     createActionEditParticipant,
     createActionRemoveParticipant
 } from '../actions';
-import { IParticipant } from '../model';
 describe('Participants Reducer', () => {
 
     it('should init with an empty empyt participant', () => {
         const state = participantsReducer(undefined, undefined);
-        expect(Object.keys(state).length).to.eql(1);
+        expect(Object.keys(state).length).toEqual(1);
     });
     describe('| Action - Add participant', () => {
         it('should add participant to state for participant id', () => {
@@ -18,7 +16,7 @@ describe('Participants Reducer', () => {
             // When
             const state = participantsReducer(undefined, createActionAddParticipant());
             // Then
-            expect(Object.keys(state).length).to.eql(2);
+            expect(Object.keys(state).length).toEqual(2);
         });
     });
 
@@ -38,7 +36,7 @@ describe('Participants Reducer', () => {
                 Object.freeze(initial),
                 createActionEditParticipant('1', 'name', 'NewName'));
             // Then
-            expect(actual).to.eql(initial);
+            expect(actual).toEqual(initial);
         });
 
         it('should edit participant name field', () => {
@@ -65,7 +63,7 @@ describe('Participants Reducer', () => {
                 Object.freeze(initial),
                 createActionEditParticipant('0', 'name', 'NewName'));
             // Then
-            expect(actual).to.eql(expected);
+            expect(actual).toEqual(expected);
         });
 
         it('should edit participant group field', () => {
@@ -91,7 +89,7 @@ describe('Participants Reducer', () => {
                 Object.freeze(initial),
                 createActionEditParticipant('0', 'group', 'NewGroup'));
             // Then
-            expect(actual).to.eql(expected);
+            expect(actual).toEqual(expected);
         });
 
         it('should edit participant type field', () => {
@@ -117,7 +115,7 @@ describe('Participants Reducer', () => {
                 Object.freeze(initial),
                 createActionEditParticipant('0', 'type', 'NewType'));
             // Then
-            expect(actual).to.eql(expected);
+            expect(actual).toEqual(expected);
         });
     });
 
@@ -135,7 +133,7 @@ describe('Participants Reducer', () => {
             // When
             const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant('1'));
             // Then
-            expect(actual).to.eql(initial);
+            expect(actual).toEqual(initial);
         });
         it('should do nothing if participant id no mathc', () => {
             // Given
@@ -151,7 +149,7 @@ describe('Participants Reducer', () => {
             // When
             const actual = participantsReducer(Object.freeze(initial), createActionRemoveParticipant('0'));
             // Then
-            expect(actual).to.eql(expected);
+            expect(actual).toEqual(expected);
         });
     });
 });

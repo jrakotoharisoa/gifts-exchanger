@@ -17,6 +17,6 @@ export const rootReducer = combineReducers<IAppState>({
 
 
 // Selector
-export const getArrayOfParticipants = (state) => (fromParticipants(state.participants));
-export const getExchanges = (state) => (state.exchanges);
+export const getArrayOfParticipants = (state: IAppState) => (fromParticipants(state.participants));
+export const getExchanges = (state: IAppState) => (state.exchanges);
 

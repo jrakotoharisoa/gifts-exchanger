@@ -1,6 +1,5 @@
 import { GiftsExchanger } from './src/common/giftsExchanger';
 import { CSVReader } from './src/common/CSVReader';
-import { IParticipant } from './src/model';
 import {
     NotMyself,
     NotSameGroup,

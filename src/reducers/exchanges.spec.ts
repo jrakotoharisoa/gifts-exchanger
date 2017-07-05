@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { exchangesReducer, IExchangesState } from './exchanges';
 import { IParticipant } from '../model';
 import { createActionGenerateExchange } from '../actions';
@@ -6,7 +5,7 @@ import { createActionGenerateExchange } from '../actions';
 describe('Exchanges Reducer', () => {
     it('should init with an empty array', () => {
         const state = exchangesReducer(undefined, undefined);
-        expect(state).to.eql([]);
+        expect(state).toEqual([]);
     });
 
     describe('| Action - Generate', () => {
@@ -31,7 +30,7 @@ describe('Exchanges Reducer', () => {
             const actual = exchangesReducer(initial, createActionGenerateExchange(participants));
 
             // Then
-            expect(actual.length).to.eql(2);
+            expect(actual.length).toEqual(2);
         });
     });
 });

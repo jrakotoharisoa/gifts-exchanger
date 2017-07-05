@@ -9,10 +9,10 @@ import {
 } from '../common/criteria';
 export type IExchangesState = IGifsExchange[];
 
-const initialState = [];
+const initialState: Array<IGifsExchange> = [];
 export function exchangesReducer(
     state: IExchangesState = initialState,
-    action: ExchangesAction) {
+    action: ExchangesAction|undefined) {
     if (!action) {
         return state;
     }
@@ -25,7 +25,7 @@ export function exchangesReducer(
     }
 }
 
-function generateExchangeReducer(state, {participants}: GenerateAction) {
+function generateExchangeReducer(_state: IExchangesState, {participants}: GenerateAction) {
     const exchanger = new GiftsExchanger(
         participants.filter(p => p.name),
         [
@@ -36,4 +36,4 @@ function generateExchangeReducer(state, {participants}: GenerateAction) {
         ]);
     exchanger.run();
     return exchanger.relations;
-};
+}

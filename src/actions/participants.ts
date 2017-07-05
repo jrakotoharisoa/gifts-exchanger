@@ -1,5 +1,3 @@
-import { IParticipant } from '../model';
-
 export type ParticipantsAction =
     AddParticipantAction
     | EditParticipantAction
@@ -23,7 +21,7 @@ export type EditParticipantAction = {
     field: ('name' | 'group' | 'type');
     value: string,
     id: string
-}
+};
 
 export const createActionEditParticipant = (id: string,
     field: ('name' | 'group' | 'type'),
@@ -39,7 +37,7 @@ export const createActionEditParticipant = (id: string,
 export type RemoveParticipantAction = {
     type: 'REMOVE_PARTICIPANT';
     id: string
-}
+};
 
 export const createActionRemoveParticipant = (id: string): RemoveParticipantAction =>
     ({

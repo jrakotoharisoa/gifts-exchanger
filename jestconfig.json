@@ -1,0 +1,29 @@
+{
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js"
+    ],
+    "moduleDirectories": [
+        "node_modules",
+        "src"
+    ],
+    "transform": {
+        "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+        "<rootDir>/src/**/*.spec.(ts|tsx|js)"
+    ],
+    "mapCoverage": true,
+    "coverageDirectory": ".coverage",
+    "coveragePathIgnorePatterns": [
+        "/node_modules/"
+    ],
+    "collectCoverageFrom": [
+        "src/**/*.{ts,tsx}",
+        "!src/**/*.spec.ts"
+    ],
+    "setupFiles": [
+        "<rootDir>/node_modules/core-js/shim.js"
+    ]
+}
