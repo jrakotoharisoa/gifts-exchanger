@@ -1,0 +1,12 @@
+language: javascript
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+script:
+  - npm run build
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
